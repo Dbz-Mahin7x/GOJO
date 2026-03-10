@@ -1,8 +1,10 @@
 ## 🌀 SAT0RU – Jujutsu Kaisen Cursed Technique Visualizer
 
 <div align="center">
+<p align="center">
+  <img src="https://files.catbox.moe/etx4xq.jpg" alt="Gojo Starou " width="100%" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+</p>
 
-https://files.catbox.moe/etx4xq.jpg
 
 https://img.shields.io/badge/Three.js-3D-0492C2?style=for-the-badge&logo=threedotjs&logoColor=white
 https://img.shields.io/badge/Mediapipe-Hand%20Tracking-FF6B6B?style=for-the-badge&logo=google&logoColor=white
