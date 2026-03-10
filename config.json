@@ -1,113 +1,113 @@
 // ============================================================
-//  SAT0RU CONFIG — Chỉnh tùy thích, reload page để thấy thay đổi
+//  SAT0RU CONFIG — Adjust as you like, reload page to see changes
 // ============================================================
 
 const CONFIG = {
 
     // =================== PARTICLES ===================
-    // Số hạt mỗi quả cầu (tổng = x2). Cao hơn = đẹp hơn nhưng lag hơn
+    // Number of particles per sphere (total = x2). Higher = better visuals but more lag
     BALL_COUNT: 10000,
 
-    // Kích thước base của mỗi hạt particle (Three.js PointsMaterial)
+    // Base size of each particle (Three.js PointsMaterial)
     PARTICLE_BASE_SIZE: 0.3,
 
-    // =================== RED BALL (tay trái) ===================
+    // =================== RED BALL (left hand) ===================
     RED: {
-        // Phần lõi cầu tròn
-        coreRatio: 0.12,        // % hạt nằm ở lõi (0.0 - 1.0)
-        coreRadius: 7,          // Bán kính lõi
-        coreColor: { r: 3, g: 0.1, b: 0.1 },   // Màu lõi (giá trị > 1 = sáng hơn)
-        coreSize: 2.5,          // Kích thước hạt lõi
+        // Core spherical section
+        coreRatio: 0.12,        // % of particles in the core (0.0 - 1.0)
+        coreRadius: 7,          // Core radius
+        coreColor: { r: 3, g: 0.1, b: 0.1 },   // Core color (values > 1 = brighter)
+        coreSize: 2.5,          // Core particle size
 
-        // Cánh tay xoắn spiral
-        arms: 3,                // Số cánh xoắn
-        spiralSpeed: 15,        // Tốc độ xoắn (cao hơn = xoắn tighter)
-        spiralRadius: 30,       // Bán kính tối đa của spiral
-        spiralStartRadius: 2,   // Bán kính bắt đầu
-        spiralDepth: 8,         // Độ dày theo trục Z
+        // Spiral arms
+        arms: 3,                // Number of spiral arms
+        spiralSpeed: 15,        // Spiral speed (higher = tighter spiral)
+        spiralRadius: 30,       // Maximum spiral radius
+        spiralStartRadius: 2,   // Starting radius
+        spiralDepth: 8,         // Z-axis thickness
         armColor: { r: 0.8, g: 0, b: 0 },
         armSize: 1.0,
 
         // Rotation
-        rotationSpeed: -0.08,   // Tốc độ xoay (âm = ngược chiều kim đồng hồ)
+        rotationSpeed: -0.08,   // Rotation speed (negative = counter-clockwise)
 
         // Bloom & shake
         bloom: 2.5,
         shake: 0.25,
     },
 
-    // =================== BLUE BALL (tay phải) ===================
+    // =================== BLUE BALL (right hand) ===================
     BLUE: {
-        // Phần lõi cầu tròn
-        coreRatio: 0.12,        // % hạt nằm ở lõi (0.0 - 1.0)
-        coreRadius: 7,          // Bán kính lõi
-        coreColor: { r: 0.2, g: 0.6, b: 3.0 },   // Tăng độ sáng (b > 1) để bloom mạnh bằng Red (3.0)
-        coreSize: 2.5,          // Kích thước hạt lõi
+        // Core spherical section
+        coreRatio: 0.12,        // % of particles in the core (0.0 - 1.0)
+        coreRadius: 7,          // Core radius
+        coreColor: { r: 0.2, g: 0.6, b: 3.0 },   // Increase brightness (b > 1) for stronger bloom (3.0)
+        coreSize: 2.5,          // Core particle size
 
-        // Cánh tay xoắn spiral
-        arms: 3,                // Số cánh xoắn
-        spiralSpeed: 15,        // Tốc độ xoắn (cao hơn = xoắn tighter)
-        spiralRadius: 30,       // Bán kính tối đa của spiral
-        spiralStartRadius: 2,   // Bán kính bắt đầu
-        spiralDepth: 8,         // Độ dày theo trục Z
+        // Spiral arms
+        arms: 3,                // Number of spiral arms
+        spiralSpeed: 15,        // Spiral speed (higher = tighter spiral)
+        spiralRadius: 30,       // Maximum spiral radius
+        spiralStartRadius: 2,   // Starting radius
+        spiralDepth: 8,         // Z-axis thickness
         armColor: { r: 0, g: 0.2, b: 0.9 },
         armSize: 1.0,
 
         // Rotation
-        rotationSpeed: -0.08,   // Tốc độ xoay (âm = ngược chiều kim đồng hồ)
+        rotationSpeed: -0.08,   // Rotation speed (negative = counter-clockwise)
 
         // Bloom & shake
         bloom: 2.5,
         shake: 0.25,
     },
 
-    // =================== PURPLE (dung hợp) ===================
+    // =================== PURPLE (fusion) ===================
     PURPLE: {
-        coreRatio: 0.8,         // 80% hạt ở lõi cầu, 20% bay xung quanh
+        coreRatio: 0.8,         // 80% particles in core sphere, 20% floating outside
         coreRadius: 12,
         coreColor: { r: 0.6, g: 0.5, b: 1.0 },
         coreSize: 1,
 
-        outerSpread: 50,        // Hạt ngoài bay xa tới đâu
+        outerSpread: 50,        // How far outer particles spread
         outerColor: { r: 0.5, g: 0.5, b: 0.7 },
         outerSize: 0.8,
 
-        rotationSpeedA: 0.15,   // Hệ red xoay
-        rotationSpeedB: -0.12,  // Hệ blue xoay ngược
+        rotationSpeedA: 0.15,   // Red system rotation
+        rotationSpeedB: -0.12,  // Blue system counter-rotation
         rotationY: 0.03,
 
-        fusionDistance: 220,     // Khoảng cách (px trên màn hình) để kích hoạt fusion
+        fusionDistance: 220,     // Distance (pixels on screen) to trigger fusion
 
         bloom: 1,
         shake: 1,
     },
 
-    // =================== FUSION ANIMATION (quay vòng hút nhau) ===================
+    // =================== FUSION ANIMATION (orbiting attraction) ===================
     FUSION: {
-        // Phase 1: Quỹ đạo xoay quanh nhau (binary star orbit)
-        orbitSpeed: 0.08,           // Tốc độ xoay quanh tâm (rad/frame)
-        orbitStartRadius: 20,       // Bán kính quỹ đạo ban đầu (world units)
+        // Phase 1: Binary star orbit around common center
+        orbitSpeed: 0.08,           // Orbital speed (rad/frame)
+        orbitStartRadius: 20,       // Initial orbit radius (world units)
 
-        // Phase 2: Xoắn ốc hút vào nhau
-        spiralShrinkRate: 0.97,     // Mỗi frame bán kính x= giá trị này (< 1 = hút vào)
-        spiralSpeedUp: 1.02,        // Tốc độ xoay tăng dần
-        collisionRadius: 2,        // Khi bán kính < giá trị này → va chạm
+        // Phase 2: Spiral pull towards each other
+        spiralShrinkRate: 0.97,     // Radius multiplier per frame (< 1 = pulling in)
+        spiralSpeedUp: 1.02,        // Rotation speed increase
+        collisionRadius: 2,        // When radius < this value → collision
 
-        // Phase 3: Vụ nổ + hình thành
-        explosionDuration: 40,      // Số frame vụ nổ
-        explosionScatter: 60,       // Hạt bay xa tới đâu lúc nổ
-        explosionBloom: 6.0,        // Bloom lúc nổ
-        explosionShake: 1.5,        // Rung lúc nổ
-        reformSpeed: 0.08,          // Tốc độ hạt quay về dạng cầu tím
+        // Phase 3: Explosion + formation
+        explosionDuration: 40,      // Number of explosion frames
+        explosionScatter: 60,       // How far particles scatter during explosion
+        explosionBloom: 6.0,        // Bloom during explosion
+        explosionShake: 1.5,        // Screen shake during explosion
+        reformSpeed: 0.08,          // Speed of particles reforming into purple sphere
 
-        // Hiệu ứng khi đang orbit
+        // Effects during orbit phase
         orbitBloom: 3.5,
         orbitShake: 0.3,
     },
 
     // =================== UNLIMITED VOID ===================
     VOID: {
-        ringRadius: 22,             // Bán kính vòng accretion chính
+        ringRadius: 22,             // Main accretion ring radius
         ringColor: { r: 1, g: 1, b: 1 },
         ringSize: 2.5,
 
@@ -116,69 +116,69 @@ const CONFIG = {
         outerColor: { r: 0.1, g: 0.6, b: 1.0 },
         outerSize: 0.7,
 
-        rotationZ: 0.004,           // Tốc độ xoay quanh trục Z
-        rotationX: 0.001,           // Tốc độ xoay quanh trục X (tạo cảm giác 3D)
+        rotationZ: 0.004,           // Z-axis rotation speed
+        rotationX: 0.001,           // X-axis rotation speed (creates 3D effect)
 
         bloom: 3,
         shake: 0,
 
-        posX: 0,  // x âm = trái, x dương = phải
-        posY: -5,   // y dương = trên, y âm = dưới
+        posX: 0,  // x negative = left, x positive = right
+        posY: -5,   // y positive = up, y negative = down
         posZ: 0,
 
-        // Warp speed intro (du hành thời gian)
-        warpDuration: 60,          // Số frame warp intro (tăng lên = lâu hơn)
-        warpSpeed: 10,             // Tốc độ bay ngang cực nhanh (tạo vệt dài)
-        warpBloom: 5.0,             // Bloom rực rỡ
-        warpShake: 2.0,             // Rung mạnh hơn
+        // Warp speed intro (time travel effect)
+        warpDuration: 60,          // Number of warp intro frames (higher = longer)
+        warpSpeed: 10,             // Fast horizontal travel speed (creates long trails)
+        warpBloom: 5.0,             // Intense bloom effect
+        warpShake: 2.0,             // Stronger screen shake
     },
 
     // =================== BLOOM (post-processing) ===================
     BLOOM: {
-        defaultStrength: 1.8,   // Mặc định khi khởi tạo
+        defaultStrength: 1.8,   // Default strength on initialization
         radius: 0.4,
         threshold: 0.85,
     },
 
     // =================== GESTURE DETECTION ===================
     DETECTION: {
-        crossedFingerThreshold: 0.045,  // Khoảng cách tip để coi là bắt chéo
-        snapCooldownFrames: 30,         // Frame cooldown sau mỗi lần bắn (chỉ tay)
-        chargeFrames: 20,               // Số frame giữ 3 ngón trước khi bắn (~1 giây)
+        crossedFingerThreshold: 0.045,  // Tip distance to consider fingers crossed
+        snapCooldownFrames: 30,         // Cooldown frames after each snap (finger gun)
+        chargeFrames: 20,               // Frames to hold 3 fingers before firing (~1 second)
         minDetectionConfidence: 0.7,
         minTrackingConfidence: 0.6,
     },
 
     // =================== ANIMATION ===================
     ANIMATION: {
-        positionLerpSpeed: 0.5,    // Tốc độ di chuyển quả cầu theo tay (0-1)
-        morphLerpSpeed: 0.1,        // Tốc độ morph hạt sang hình mới
-        fadeInSpeed: 0.08,          // Tốc độ xuất hiện
-        fadeOutSpeed: 0.04,         // Tốc độ biến mất
-        shakeMultiplier: 12,        // Cường độ rung màn hình
-        neutralRotation: 0.005,     // Xoay khi không có technique
+        positionLerpSpeed: 0.5,    // Speed of ball movement following hand (0-1)
+        morphLerpSpeed: 0.1,        // Speed of particles morphing to new shape
+        fadeInSpeed: 0.08,          // Appearance speed
+        fadeOutSpeed: 0.04,         // Disappearance speed
+        shakeMultiplier: 12,        // Screen shake intensity
+        neutralRotation: 0.005,     // Rotation when no technique is active
     },
 
-    // =================== PROJECTILE (búng tay) ===================
+    // =================== PROJECTILE (finger snap) ===================
     PROJECTILE: {
-        speed: 20,             // Tốc độ bay cơ bản
-        duration: 100,          // Số frame bay (đủ lâu để bay qua camera)
-        redDirection: { x: 1, y: 0.2, z: 1 },     // Bay thẳng về phía người xem
-        blueDirection: { x: -1, y: 0.2, z: 1 },    // Bay thẳng về phía người xem
-        purpleDirection: { x: 0, y: 0.2, z: 1 },  // Bay thẳng về phía người xem
+        speed: 20,             // Base flight speed
+        duration: 100,          // Flight duration frames (long enough to pass camera)
+        redDirection: { x: 1, y: 0.2, z: 1 },     // Flies toward viewer
+        blueDirection: { x: -1, y: 0.2, z: 1 },    // Flies toward viewer
+        purpleDirection: { x: 0, y: 0.2, z: 1 },  // Flies toward viewer
     },
 
     // =================== CAMERA ===================
     CAMERA: {
         width: 1280,
         height: 720,
-        cameraZ: 55,            // Khoảng cách camera 3D
+        cameraZ: 55,            // 3D camera distance
         fov: 75,                // Field of view
     },
 
     // =================== DEBUG ===================
     DEBUG: {
-        showLandmarks: true,    // Hiện skeleton tay lên màn hình (true/false)
+        showLandmarks: true,    // Show hand skeleton on screen (true/false)
     },
 };
 
