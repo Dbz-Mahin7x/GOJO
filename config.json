@@ -1,184 +1,149 @@
 // ============================================================
-//  SAT0RU CONFIG — Adjust as you like, reload page to see changes
+//  SAT0RU CONFIG — Adjust as you like, reload to see changes
 // ============================================================
 
 const CONFIG = {
-
-    // =================== PARTICLES ===================
-    // Number of particles per sphere (total = x2). Higher = better visuals but more lag
+    // Number of particles per sphere (higher = better visuals but more lag)
     BALL_COUNT: 10000,
-
-    // Base size of each particle (Three.js PointsMaterial)
     PARTICLE_BASE_SIZE: 0.3,
 
-    // =================== RED BALL (left hand) ===================
+    // RED sphere (left hand)
     RED: {
-        // Core spherical section
-        coreRatio: 0.12,           // % of particles in the core (0.0 - 1.0)
-        coreRadius: 7,              // Core radius
-        coreColor: { r: 3, g: 0.1, b: 0.1 },   // Core color (values > 1 = brighter)
-        coreSize: 2.5,              // Core particle size
-
-        // Spiral arms
-        arms: 3,                    // Number of spiral arms
-        spiralSpeed: 15,            // Spiral speed (higher = tighter spiral)
-        spiralRadius: 30,           // Maximum spiral radius
-        spiralStartRadius: 2,       // Starting radius
-        spiralDepth: 8,             // Z-axis thickness
+        coreRatio: 0.12,
+        coreRadius: 7,
+        coreColor: { r: 3, g: 0.1, b: 0.1 },
+        coreSize: 2.5,
+        arms: 3,
+        spiralSpeed: 15,
+        spiralRadius: 30,
+        spiralStartRadius: 2,
+        spiralDepth: 8,
         armColor: { r: 0.8, g: 0, b: 0 },
         armSize: 1.0,
-
-        // Rotation
-        rotationSpeed: -0.08,       // Rotation speed (negative = counter-clockwise)
-
-        // Bloom & shake
+        rotationSpeed: -0.08,
         bloom: 2.5,
         shake: 0.25,
     },
 
-    // =================== BLUE BALL (right hand) ===================
+    // BLUE sphere (right hand)
     BLUE: {
-        // Core spherical section
-        coreRatio: 0.12,            // % of particles in the core (0.0 - 1.0)
-        coreRadius: 7,              // Core radius
-        coreColor: { r: 0.2, g: 0.6, b: 3.0 },   // Increase brightness (b > 1) for stronger bloom
-        coreSize: 2.5,              // Core particle size
-
-        // Spiral arms
-        arms: 3,                    // Number of spiral arms
-        spiralSpeed: 15,            // Spiral speed (higher = tighter spiral)
-        spiralRadius: 30,           // Maximum spiral radius
-        spiralStartRadius: 2,       // Starting radius
-        spiralDepth: 8,             // Z-axis thickness
+        coreRatio: 0.12,
+        coreRadius: 7,
+        coreColor: { r: 0.2, g: 0.6, b: 3.0 },
+        coreSize: 2.5,
+        arms: 3,
+        spiralSpeed: 15,
+        spiralRadius: 30,
+        spiralStartRadius: 2,
+        spiralDepth: 8,
         armColor: { r: 0, g: 0.2, b: 0.9 },
         armSize: 1.0,
-
-        // Rotation
-        rotationSpeed: -0.08,       // Rotation speed (negative = counter-clockwise)
-
-        // Bloom & shake
+        rotationSpeed: -0.08,
         bloom: 2.5,
         shake: 0.25,
     },
 
-    // =================== PURPLE (fusion) ===================
+    // PURPLE (fusion)
     PURPLE: {
-        coreRatio: 0.8,             // 80% particles in core sphere, 20% floating outside
+        coreRatio: 0.8,
         coreRadius: 12,
         coreColor: { r: 0.6, g: 0.5, b: 1.0 },
         coreSize: 1,
-
-        outerSpread: 50,            // How far outer particles spread
+        outerSpread: 50,
         outerColor: { r: 0.5, g: 0.5, b: 0.7 },
         outerSize: 0.8,
-
-        rotationSpeedA: 0.15,       // Red system rotation
-        rotationSpeedB: -0.12,      // Blue system counter-rotation
+        rotationSpeedA: 0.15,
+        rotationSpeedB: -0.12,
         rotationY: 0.03,
-
-        fusionDistance: 220,        // Distance (pixels on screen) to trigger fusion
-
+        fusionDistance: 220,
         bloom: 1,
         shake: 1,
     },
 
-    // =================== FUSION ANIMATION ===================
+    // FUSION animation
     FUSION: {
-        // Phase 1: Binary star orbit around common center
-        orbitSpeed: 0.08,           // Orbital speed (rad/frame)
-        orbitStartRadius: 20,       // Initial orbit radius (world units)
-
-        // Phase 2: Spiral pull towards each other
-        spiralShrinkRate: 0.97,     // Radius multiplier per frame (< 1 = pulling in)
-        spiralSpeedUp: 1.02,        // Rotation speed increase
-        collisionRadius: 2,         // When radius < this value → collision
-
-        // Phase 3: Explosion + formation
-        explosionDuration: 40,      // Number of explosion frames
-        explosionScatter: 60,       // How far particles scatter during explosion
-        explosionBloom: 6.0,        // Bloom during explosion
-        explosionShake: 1.5,        // Screen shake during explosion
-        reformSpeed: 0.08,          // Speed of particles reforming into purple sphere
-
-        // Effects during orbit phase
+        orbitSpeed: 0.08,
+        orbitStartRadius: 20,
+        spiralShrinkRate: 0.97,
+        spiralSpeedUp: 1.02,
+        collisionRadius: 2,
+        explosionDuration: 40,
+        explosionScatter: 60,
+        explosionBloom: 6.0,
+        explosionShake: 1.5,
+        reformSpeed: 0.08,
         orbitBloom: 3.5,
         orbitShake: 0.3,
     },
 
-    // =================== UNLIMITED VOID ===================
+    // INFINITE VOID
     VOID: {
-        ringRadius: 22,             // Main accretion ring radius
+        ringRadius: 22,
         ringColor: { r: 1, g: 1, b: 1 },
         ringSize: 2.5,
-
         outerMinRadius: 25,
         outerMaxRadius: 95,
         outerColor: { r: 0.1, g: 0.6, b: 1.0 },
         outerSize: 0.7,
-
-        rotationZ: 0.004,           // Z-axis rotation speed
-        rotationX: 0.001,           // X-axis rotation speed (creates 3D effect)
-
+        rotationZ: 0.004,
+        rotationX: 0.001,
         bloom: 3,
         shake: 0,
-
-        posX: 0,                    // x negative = left, x positive = right
-        posY: -5,                   // y positive = up, y negative = down
+        posX: 0,
+        posY: -5,
         posZ: 0,
-
-        // Warp speed intro (time travel effect)
-        warpDuration: 60,           // Number of warp intro frames (higher = longer)
-        warpSpeed: 10,              // Fast horizontal travel speed (creates long trails)
-        warpBloom: 5.0,             // Intense bloom effect
-        warpShake: 2.0,             // Stronger screen shake
+        warpDuration: 60,
+        warpSpeed: 10,
+        warpBloom: 5.0,
+        warpShake: 2.0,
     },
 
-    // =================== BLOOM (post-processing) ===================
+    // BLOOM post-processing
     BLOOM: {
-        defaultStrength: 1.8,       // Default strength on initialization
+        defaultStrength: 1.8,
         radius: 0.4,
         threshold: 0.85,
     },
 
-    // =================== GESTURE DETECTION ===================
+    // Gesture detection
     DETECTION: {
-        crossedFingerThreshold: 0.045,  // Tip distance to consider fingers crossed
-        snapCooldownFrames: 30,         // Cooldown frames after each snap (finger gun)
-        chargeFrames: 20,               // Frames to hold 3 fingers before firing (~1 second)
+        crossedFingerThreshold: 0.045,
+        snapCooldownFrames: 30,
+        chargeFrames: 20,
         minDetectionConfidence: 0.7,
         minTrackingConfidence: 0.6,
     },
 
-    // =================== ANIMATION ===================
+    // Animation
     ANIMATION: {
-        positionLerpSpeed: 0.5,     // Speed of ball movement following hand (0-1)
-        morphLerpSpeed: 0.1,        // Speed of particles morphing to new shape
-        fadeInSpeed: 0.08,          // Appearance speed
-        fadeOutSpeed: 0.04,         // Disappearance speed
-        shakeMultiplier: 12,        // Screen shake intensity
-        neutralRotation: 0.005,     // Rotation when no technique is active
+        positionLerpSpeed: 0.5,
+        morphLerpSpeed: 0.1,
+        fadeInSpeed: 0.08,
+        fadeOutSpeed: 0.04,
+        shakeMultiplier: 12,
+        neutralRotation: 0.005,
     },
 
-    // =================== PROJECTILE (finger snap) ===================
+    // Projectile (finger snap)
     PROJECTILE: {
-        speed: 20,                  // Base flight speed
-        duration: 100,              // Flight duration frames (long enough to pass camera)
-        redDirection: { x: 1, y: 0.2, z: 1 },     // Flies toward viewer
-        blueDirection: { x: -1, y: 0.2, z: 1 },   // Flies toward viewer
-        purpleDirection: { x: 0, y: 0.2, z: 1 },  // Flies toward viewer
+        speed: 20,
+        duration: 100,
+        redDirection: { x: 1, y: 0.2, z: 1 },
+        blueDirection: { x: -1, y: 0.2, z: 1 },
+        purpleDirection: { x: 0, y: 0.2, z: 1 },
     },
 
-    // =================== CAMERA ===================
+    // Camera
     CAMERA: {
         width: 1280,
         height: 720,
-        cameraZ: 55,                // 3D camera distance
-        fov: 75,                    // Field of view
+        cameraZ: 55,
+        fov: 75,
     },
 
-    // =================== DEBUG ===================
+    // Debug
     DEBUG: {
-        showLandmarks: true,        // Show hand skeleton on screen (true/false)
+        showLandmarks: true,
     },
 };
 
